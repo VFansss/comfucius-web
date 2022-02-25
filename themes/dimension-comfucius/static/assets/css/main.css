@@ -1477,6 +1477,7 @@ body.is-preload #bg:before {
   padding-left: 0;
   border: solid 1px #ffffff;
   border-radius: 4px;
+  align-items: center;
 }
 
 #header nav ul li {
@@ -1491,7 +1492,6 @@ body.is-preload #bg:before {
 #header nav ul li a {
   display: block;
   min-width: 7.5rem;
-  height: 2.75rem;
   line-height: 2.75rem;
   padding: 0 1.25rem 0 1.45rem;
   text-transform: uppercase;
@@ -1574,7 +1574,8 @@ body.is-preload #header .content .inner {
   }
 }
 
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 720px) { /* Interact with buttons list menu */
   #header {
     padding: 1.5rem 0;
   }
@@ -1590,6 +1591,7 @@ body.is-preload #header .content .inner {
     flex-direction: column;
     min-width: 10rem;
     max-width: 100%;
+    align-items: stretch;
   }
 
   #header nav ul li {
