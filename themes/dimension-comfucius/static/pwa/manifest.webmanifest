@@ -1,0 +1,22 @@
+{
+  "short_name": "Comfucius",
+  "name": "Comfucius",
+  "description": "Per i tuoi bisogni di storpiata saggezza preconfezionata ed autoreferenziale",
+  "icons": [
+    {
+      "src": "logo_192x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo_512x.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#FFFFFF",
+  "display": "minimal-ui",
+  "scope": "/",
+  "theme_color": "#FFFFFF"
+}

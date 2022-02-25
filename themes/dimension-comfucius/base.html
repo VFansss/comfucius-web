@@ -1,0 +1,148 @@
+<!doctype html>
+{% load static %}
+{% load pwa %}
+<html lang="it">
+
+<head>
+    <title>Il tempio di Comfucius</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="author" content="VFansss">
+    <meta name="keywords" content="comfucius,phrases,philosophy,jokes">
+    <meta name="description"
+        content="Comfucius - Per i tuoi bisogni di storpiata saggezza preconfezionata ed autoreferenziale">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://comfucius.xyz">
+    <meta property="og:title" content="Comfucius">
+    <meta property="og:image" content="https://comfucius.xyz/static/images/capsule.jpg">
+    <meta property="og:description"
+        content="Comfucius - Per i tuoi bisogni di storpiata saggezza preconfezionata ed autoreferenziale">
+    <meta property="og:locale" content="it_IT">
+
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" type="text/css" />
+    <noscript>
+        <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+
+    {% progressive_web_app_meta %}
+
+</head>
+
+<body class="is-preload">
+
+    <div id="wrapper">
+
+        <header id="header">
+            <div class="logo">
+                <img src="{% static 'images/logo_white.svg' %}" alt=""/>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1>{{Phrase}}</h1>
+                    <p>~ {{Thinker}}</p>
+                </div>
+            </div>
+
+            <em style="text-align: center; font-size: 1.2rem;">Hai bisogno di una citazione del menga da postare su qualche social scrauso per farti il guappo?<br>No problem: Comfucius te ne tira fuori una diversa ogni tot ore</em>
+    
+            <nav>
+                <ul>
+                    <li><a href="#intro">Percome</a></li>           
+                    <li><a href="#intro">Comfucius everywhere</a></li>                   
+                    <li><a id="pwaLink" href="#" class="hidden" style="color:goldenrod; font-weight: bold;">Installa Comfucius</a></li>
+                    <li><a href="https://www.paypal.com/paypalme/VFansss">Caccia il grano</a></li>
+                    					
+                </ul>
+            </nav>
+
+            <ul class="icons">
+                <!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
+                <li><a href="https://github.com/VFansss" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+
+        </header>
+
+        <div id="main">
+
+            <article id="intro">
+
+                <h2 class="major">Perchè Comfucius</h2>
+                <span class="image main"><img src="{% static 'images/pill_intro.jpg' %}" alt=""/></span>
+
+                <blockquote>Le citazioni su internet sono quasi sempre false ~ Albert Einstein</blockquote>
+
+                <blockquote>L'ho trovato scritto su internet. Sarà sicuramente vero</blockquote>
+
+                <p></p>
+
+            </article>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; {{current_year}} VFansss. 
+                <a href="https://github.com/VFansss/comfucius-web">
+                    See code on Github
+                </a>
+                - 
+                Sfondi:
+                <a href="https://unsplash.com/collections/10453773/backgrounds-that-inspired-comfucius">
+                    "Backgrounds that inspired Comfucius" on Unsplash
+                </a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        
+        // Enable UI button for adding PWA
+        document.getElementById("pwaLink").classList.remove("hidden");
+    });
+
+    document.getElementById("pwaLink").addEventListener("click", event =>{
+
+        event.preventDefault();
+
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+
+            // Hide the "add PWA" button
+            document.getElementById("pwaLink").classList.add("hidden");
+            } else {
+            console.log('User dismissed the install prompt');
+            }
+        });
+
+    });
+
+    </script>
+
+</body>
+
+</html>

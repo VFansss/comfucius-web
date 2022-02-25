@@ -1,0 +1,4 @@
+﻿*/__pycache__
+quotes/migrations
+db.sqlite3
+/static
