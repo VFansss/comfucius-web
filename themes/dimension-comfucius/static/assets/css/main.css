@@ -96,6 +96,10 @@ video {
   vertical-align: baseline;
 }
 
+.actions a {
+  border-bottom-color: transparent !important;
+}
+
 article,
 aside,
 details,
