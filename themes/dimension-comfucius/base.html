@@ -1,0 +1,376 @@
+<!doctype html>
+{% load static %}
+{% load pwa %}
+<html lang="it">
+
+<head>
+    <title>Il tempio di Comfucius</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="author" content="VFansss">
+    <meta name="keywords" content="comfucius,phrases,philosophy,jokes">
+    <meta name="description"
+        content="Comfucius - Per i tuoi bisogni di storpiata saggezza preconfezionata ed autoreferenziale">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://comfucius.xyz">
+    <meta property="og:title" content="Comfucius">
+    <meta property="og:image" content="https://comfucius.xyz/static/images/capsule.jpg">
+    <meta property="og:description"
+        content="Comfucius - Per i tuoi bisogni di storpiata saggezza preconfezionata ed autoreferenziale">
+    <meta property="og:locale" content="it_IT">
+
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" type="text/css" />
+    <noscript>
+        <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+
+    {% progressive_web_app_meta %}
+
+</head>
+
+<body class="is-preload">
+
+    <div id="wrapper">
+
+        <header id="header">
+            <div class="logo">
+                <img src="{% static 'images/logo_white.svg' %}" alt=""/>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1>{{Phrase}}</h1>
+                    <p>~ {{Thinker}}</p>
+                </div>
+            </div>
+
+            <em style="text-align: center; font-size: 1.2rem;">Hai bisogno di una citazione del menga da postare su qualche social scrauso per farti il guappo?<br>No problem: Comfucius te ne tira fuori una diversa ogni tot ore</em>
+    
+            <nav>
+                <ul>
+                    <li><a href="#intro">Perché?</a></li>           
+                    <li><a href="#everywhere">Comfucius everywhere</a></li>                   
+                    <li><a id="pwaLink" href="#" class="hidden" style="color:goldenrod; font-weight: bold;">Installa Comfucius</a></li>
+                    <li><a href="#schei">Caccia la pecunia</a></li>
+                    					
+                </ul>
+            </nav>
+
+            <ul class="icons">
+                <li> <!-- GitHub Icon -->
+                    <a href="https://github.com/VFansss" class="icon brands" style="display: flex; align-items: center; justify-content: center;" >
+                        <svg style="width:50%; height: auto;fill:#fff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 5.3C114.6 5.3 0 120.4 0 262.4c0 113.5 73.3 209.9 175.1 243.9 12.8 2.4 17.5-5.6 17.5-12.4 0-6.1-.2-22.3-.4-43.7-71.2 15.4-86.2-34.5-86.2-34.5-11.6-29.7-28.4-37.6-28.4-37.6-23.3-15.9 1.7-15.6 1.7-15.6 25.7 1.8 39.2 26.5 39.2 26.5 22.8 39.3 59.9 27.9 74.5 21.3 2.3-16.6 8.9-27.9 16.3-34.4-56.8-6.5-116.6-28.5-116.6-127 0-28.1 10-51 26.4-69-2.7-6.5-11.4-32.6 2.5-68 0 0 21.5-6.9 70.4 26.3 20.4-5.7 42.3-8.5 64.1-8.6 21.7.1 43.6 2.9 64.1 8.7C369 105 390.5 112 390.5 112c14 35.4 5.2 61.5 2.6 68 16.4 18 26.3 40.9 26.3 69 0 98.7-59.8 120.4-116.9 126.8 9.2 7.9 17.4 23.6 17.4 47.6 0 34.4-.3 62.1-.3 70.5 0 6.9 4.6 14.9 17.6 12.4C438.7 472.1 512 375.9 512 262.4c0-142-114.6-257.1-256-257.1z"></path></svg>
+                    </a>
+                </li>
+                <li> <!-- Alexa Icon -->
+                    <a href="https://www.amazon.it/ADG-Media-Genio-Comfucius/dp/B0928Q4YYY" class="icon brands" style="display: flex; align-items: center; justify-content: center;">
+                        <svg style="width:50%; height: auto;fill:#fff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0m-1.9 23.8v-2.4c0-.8-.5-1.6-1.3-1.9-2.9-1.2-5-4.2-5-7.6 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2c0 5.4-4.1 10.4-10.1 11.9z"></path></svg>
+                    </a>
+                </li>
+                <li> <!-- VS Code icon -->
+                    <a href="https://marketplace.visualstudio.com/items?itemName=VFansss.comfucius" class="icon brands" style="display: flex; align-items: center; justify-content: center;">
+                        <svg style="width:50%; height: auto;fill:#fff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M493.8 55.2L388.5 4.5c-12.3-5.9-26.8-3.4-36.4 6.2L150.3 194.8l-87.9-66.7c-8.2-6.3-19.7-5.7-27.2 1.2L7 154.9c-9.3 8.4-9.3 23.1-.1 31.5L83.2 256 6.9 325.6c-9.2 8.4-9.2 23.1.1 31.5l28.2 25.7c7.7 6.9 19.1 7.4 27.2 1.2l87.9-66.7 201.8 184.1c9.5 9.6 24.1 12.1 36.3 6.2l105.4-50.7c11.1-5.3 18.1-16.5 18.1-28.8V84c.1-12.3-7-23.5-18.1-28.8zM384.1 372.3L230.9 256l153.2-116.3v232.6z"></path></svg>
+                    </a>
+                </li>
+            </ul>
+
+        </header>
+
+        <div id="main">
+
+            <article id="intro">
+
+                <h2 class="major-title">Perché Comfucius</h2>
+
+                <span class="image main"><img src="{% static 'images/pill_intro.jpg' %}" alt=""/></span>
+
+                <blockquote>Le citazioni su internet sono quasi sempre false ~ Albert Einstein</blockquote>
+
+                <blockquote>This is the rhythm of the night, oh yeah ~ Friedrich Nietzsche</blockquote>
+
+                <p>Comfucius ha una missione.</p>
+
+                <p>Comfucius, come tutte le invenzioni più belle, nasce per una necessità.</p>
+                
+                <p>L'origine di tale necessità non va ricercata negli annali della storia dell'umanità ma piuttosto a qualcuno in fila alla cassa del supermercato _____ (Lascio lo spazio vuoto per lo sponsor che pagherà di più).</p>
+                
+                <p>Quel qualcuno in fila...era Albert Einstein.</p>
+                
+                <p>No, invece ero io.</p>
+                
+                <p>Stavo consultando un social. Non dico quale, ma considerando quanto tutti si assomiglino potrei affermare che ne stavo consultando uno a caso. Ecco: i social sono un po' come i negozi di bricolage.</p>
+                
+                <p>Stavo leggendo una storia, che mi sembrava lunga abbastanza da tenermi occupato mentre la signora si diverte a giocare a rubamazzo con la cassiera con le carte fedeltà ed i bancomat, ma abbastanza corta da leggere prima che gli yogurt che ho comprato scadano.</p>
+                
+                <p>Il protagonista di questa storia è Larry Page (uno dei fondatori di Google) e l'oggetto della storia sono cinque fantomatiche sfere di vetro, il cui destino è raccontato dal sopracitato sul palco di un evento pubblico.</p>
+                
+                <p>Codeste sfere vengono metaforicamente tenute in equilibrio nella mano di chiunque e nella storia di Page (che non racconterò in dettaglio per non spaccarle io, le palle) c'è il rischio che, durante la vita di tutti i giorni, queste sfere di vetro cadano per terra incrinandosi, o rompendosi definitivamente.</p>
+                
+                <span class="image main"><img src="{% static 'images/pill_intro_sphere.jpg' %}" alt=""/></span>
+
+                <blockquote>Queste 5 sfere rappresentano: lavoro, famiglia, salute, amici e spirito ~ Larry Page</blockquote>
+                
+                <p>In un colpo di scena degno di uno qualsiasi dei Bellissimi di Rete4, Page svela che con il tempo ci si accorge che una di queste sfere in realtà non è di vetro, ma bensì di gomma.</p>
+                
+                <p>La sfera di gomma è quella del lavoro.</p>
+                
+                <p>Se questa sfera cade, come tutte le cose in gomma che non finiscono sotto i mobili, tende a rimbalzare ed essere recuperabile.</p>
+                
+                <p>Le altre 4 sfere, essendo di vetro, cadono, si rompono e buonanotte ai suonatori.</p>
+                
+                <p>Non mi va di criticare la storia in sé perché, come molte delle storie con una metafora chiara, nasconde sempre una certa verità e saggezza di fondo. Del resto lo diceva anche mia nonna:</p>
+                
+                <blockquote>Pensa alla salute ~ Mia nonna</blockquote>
+                
+                <p>Che è un po' simile alla metafora di Page.</p>
+                
+                <p>Solo che mia nonna aveva a malapena la quinta elementare.</p>
+                
+                <p>Dettagli.</p>
+                
+                <p>Quello che mi colpisce però, sono i commenti sotto al post.</p>
+                
+                <p>Tolta la valanga di commenti con esperienze personali, "mi piace" e approvazioni generali (che non mi va di criticare, remore dell'esperienza di mia nonna) ce n'è uno che mi colpisce.</p>
+                
+                <p>Questo commento, con un aplomb ammirabile vista la platea, dà abilmente del fallocefalo all'autore del post in quanto</p>
+                
+                <blockquote>L'autore di questa storia non è Page ma Bryan Dyson, l'ex AD della Coca Cola. Fai poco il filosofo! ~ Filosofo n°2 sul social</blockquote>
+                
+                <p>Ne scaturisce un interessante dibattito, dall'ossatura di filosofia e turpiloquio.</p>
+                
+                <p>Dibattiti di filosofia si, dibattiti col turpiloquio si, ma assieme diventano stucchevoli come il Bloody Mary, quindi scorro più sotto e mi dimentico di tutto, in fretta.</p>
+                
+                <p>Si dice sempre che un fulmine non cade mai due volte nello stesso posto, ma chiunque sa che sui social questo non vale.</p>
+                
+                <p>Quello che leggo IMMEDIATAMENTE sotto presenta uno scenario diverso, ma non posso dire lo stesso per la sua sostanza.</p>
+                
+                <p>Vedo un'immagine di una spiaggia.</p>
+                
+                <p>Nell'immagine c'è anche un sole che sorge.</p>
+                
+                <p>In primo piano c'è la seguente citazione:</p>
+
+                <span class="image main"><img src="{% static 'images/pill_intro_beach.jpg' %}" alt=""/></span>
+                
+                <blockquote>Ricordati sempre che il sole esiste per tutti ~ Charles Bukowski</blockquote>
+                
+                <p>La frase mi colpisce.</p>
+                
+                <p>Neanche stavolta mi va di criticarla: non è forse vero? Però ho una sensazione di turbamento.</p>
+                
+                <p>Saldo tutto e torno a casa a passo veloce. Nella busta della spesa le bottiglie di vetro sbattono tra di loro, e ironicamente fanno lo stesso rumore delle sfere di vetro di Page.</p>
+                
+                <p>Ma figurati se Bukowski direbbe una frase del genere. Ho la frase stampata nella corteccia prefrontale. Torno a casa e mi fiondo a mollare la spesa e cercarla su Google.</p>
+                
+                <p>La citazione non esiste. Ovviamente. L'unico riferimento che trovo me lo da Wikipedia:</p>
+                
+                <blockquote>"Il sole esiste per tutti" è un singolo del cantautore italiano Tiziano Ferro</blockquote>
+                
+                <p>Lo sapevo, cazzo! Bukowski non è morto invano, per darci citazioni false!</p>
+                
+                <p>Un messaggio profondo perde di importanza se detto da una persona qualunque, senza sapere il contesto dell'autore?</p>
+                
+                <p>O, viceversa, una banalità cessa di esserlo nel momento in cui viene pronunciata da un erudito, un anziano o saggio, o magari una persona che racchiude tutte queste caratteristiche al contempo?</p>
+                
+                <p>E' possibile far proprio un messaggio (semplice o meno) se frutto della casualità, della disattenzione, del caos di un mondo (quello di internet, o forse in generale) che, con una certa malizia di fondo che hanno tutti i colpevoli che sanno di essere tali, confonde la reperibilità con l'affidabilità?</p>
+                
+                <p>Comfucius nasce per il viscerale bisogno di rispondere alla domanda: si può prendere sul serio un messaggio senza tenere conto del suo messaggero?</p>
+                
+                <p>O forse non è vero che...</p>
+                
+                <blockquote>{{Phrase}} ~ {{Thinker}}</blockquote>
+
+                <span class="image main"><img src="{% static 'images/pill_intro_closure.jpg' %}" alt=""/></span>
+
+            </article>
+
+            <article id="everywhere">
+
+                <h2 class="major-title">Comfucius everywhere</h2>
+
+                <span class="image main"><img src="{% static 'images/pill_everywhere.jpg' %}" alt=""/></span>
+
+                <blockquote>I presenti, dico spesso, rendono cari gli assenti ~ Totò</blockquote>
+
+                <blockquote>Stalker recidivo perseguita 28enne, ex fidanzato va in carcere ~ ANSA</blockquote>
+
+                <p>Porta Comfucius con te, in maniera da essere ispirato a qualsiasi ora del giorno e della notte, in qualsiasi modalità e da qualsiasi direzione, esattamente come la canzone dei Police.</p>
+
+                <p>E tutto completamente gratis!</p>
+
+                <p>Un applauso per la parola GRATIS!</p>
+                
+                <hr> <!-- ||||||||||||||||||||||| -->
+
+                <h3>Installa l'App di Comfucius</h3>
+
+                <span class="image main"><img src="{% static 'images/pill_everywhere_web.jpg' %}" alt=""/></span>
+
+                <blockquote>Una volta non avevamo i minuti illimitati, ma avevamo più tempo ~ Osho</blockquote>
+
+                <blockquote>Giro giro tondo - casca il mondo - casca la terra - casca lo smartphone - le bestemmie ~ Anonimo</blockquote>
+
+                <p>Installa l'app di Comfucius per poter tornare su questo sito quando inevitabilmente ti scorderai l'indirizzo.</p>
+
+                <p div style="color:goldenrod; font-weight: bold;">Come? Clicca sul grande bottone oro in homepage!</p>
+
+                <p>Se non lo vedi, direi che è arrivata l'ora di mollare Internet Explorer e di usare un browser che supporti le PWA.</p>
+
+                <p>Se conosci almeno 2 dei 3 termini pronunciati qui, sei sulla buona strada per farcela.</p>
+
+                <ul class="actions">
+                    <li>
+                        <a href="https://github.com/VFansss/comfucius-web">
+                            <input type="button" value="Sgama i casini nel codice su GitHub">
+                        </a>
+                    </li>
+                </ul>
+
+                <hr> <!-- ||||||||||||||||||||||| -->
+
+                <h3>Skill per Amazon Alexa</h3>
+
+                <span class="image main"><img src="{% static 'images/pill_everywhere_alexa.jpg' %}" alt=""/></span>
+
+                <blockquote>Alexa, gioca con il genio Comfucius</blockquote>
+
+                <blockquote>Alexa, chiedi a genio Comfucius una frase da social</blockquote>
+
+                <p>Installa l'Alexa Skill "Genio Comfucius" sul tuo dispositivo Alexa per ricevere la frase del momento direttamente sul tuo assistente vocale. Attiva la skill con una delle frasi sopracitate e sturati le orecchie.</p>
+
+                <p>E' richiesto l'uso di un dispositivo Alexa compatibile, corde vocali ok e ciglia uditive funzionanti.</p>
+
+                <ul class="actions">
+                    <li>
+                        <a href="https://www.amazon.it/ADG-Media-Genio-Comfucius/dp/B0928Q4YYY">
+                            <input type="button" value="Attiva la skill" class="primary">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/VFansss/comfucius-alexa">
+                            <input type="button" value="Vedi il codice su GitHub">
+                        </a>
+                    </li>
+                </ul>
+
+                <hr> <!-- ||||||||||||||||||||||| -->
+
+                <h3>Estensione Visual Studio Code</h3>
+
+                <span class="image main"><img src="{% static 'images/pill_everywhere_vscode.jpg' %}" alt=""/></span>
+
+                <blockquote>Al mondo ci sono 10 tipi di persone — quelle che capiscono la numerazione binaria e quelle che non la capiscono ~ Albert Einstein</blockquote>
+
+                <blockquote>PHP è un cattivo linguaggio di programmazione ~ Anonimo</blockquote>
+
+                <p>Installa l'estensione Comfucius per "Visual Studio Code" per ricevere il prodotto dell'ultima fatica di Comfucius direttamente sul tuo editor preferito. A dispetto del nome, non ci sono "code".</p>
+
+                <p>Non allieterà la tua giornata da programmatore come in QUELLA scena di "Codice Swordfish", ma ci va pericolosamente vicino.</p>
+
+                <ul class="actions">
+                    <li>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=VFansss.comfucius">
+                            <input type="button" value="Installa l'estensione" class="primary">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/VFansss/comfucius-vscode">
+                            <input type="button" value="Vedi il codice su GitHub">
+                        </a>
+                    </li>
+                </ul>
+
+            </article>
+
+            <article id="schei">
+
+                <h2 class="major-title">Caccia la pecunia</h2>
+
+                <span class="image main"><img src="{% static 'images/pill_schei.jpg' %}" alt=""/></span>
+
+                <blockquote>Il denaro somiglia alla carta igienica: quando serve, serve con una certa urgenza ~ Henry "Hank" Chinaski</blockquote>
+                
+                <blockquote>Il denaro non dà la felicità, però calma i nervi ~ Hannibal the Cannibal</blockquote>
+
+                <p>Se vuoi dare il contributo per tenere in piedi la baracca, di sicuro non sarò io a fermarti.</p>
+
+                <blockquote>Un sorriso è gratis, ma solo se hai i pannelli solari ~ Donald Trump</blockquote>
+
+                <ul class="actions">
+                    <li>
+                        <a href="https://www.paypal.com/paypalme/VFansss">
+                            <input type="button" value="Caccia gli schei su PayPal" class="primary">
+                        </a>
+                    </li>
+                </ul>
+
+            </article>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; {{current_year}} VFansss. All trademarks and logos are property of their respective owners -
+                <a href="https://github.com/VFansss/comfucius-web">
+                    See code on Github
+                </a>
+                - 
+                Sfondi:
+                <a href="https://unsplash.com/collections/10453773/backgrounds-that-inspired-comfucius">
+                    "Backgrounds that inspired Comfucius" on Unsplash
+                </a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        
+        // Enable UI button for adding PWA
+        document.getElementById("pwaLink").classList.remove("hidden");
+    });
+
+    document.getElementById("pwaLink").addEventListener("click", event =>{
+
+        event.preventDefault();
+
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+
+            // Hide the "add PWA" button
+            document.getElementById("pwaLink").classList.add("hidden");
+            } else {
+            console.log('User dismissed the install prompt');
+            }
+        });
+
+    });
+
+    </script>
+
+</body>
+
+</html>
