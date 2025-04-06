@@ -2,3 +2,7 @@
 quotes/migrations
 db.sqlite3
 /static
+
+# Python .venv directory
+
+.venv/
