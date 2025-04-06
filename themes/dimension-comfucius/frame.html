@@ -50,6 +50,18 @@
     <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
     <script src="{% static 'assets/js/util.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+    
+    <script>
+
+        // 3 hours in milliseconds
+        const refreshEvery = 1000 * 60 * 60 * 3;
+    
+        /* Remember: to test a lower refresh you can simply set "const refreshEvery = 10000" into the JS console */
+    
+        setTimeout(() => {
+        window.location.reload();
+        }, refreshEvery);
+    </script>
 
 </body>
 
