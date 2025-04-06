@@ -65,6 +65,12 @@ python manage.py migrate --run-syncdb
 python manage.py createsuperuser
 ```
 
+"Collect" the statics (so everything shows up right):
+
+```bash
+python manage.py collectstatic
+```
+
 Start the Redis server on the right port - check [Redis setup instructions](#🧰-redis-for-caching)
 
 Finally, start the development server:
