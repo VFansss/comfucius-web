@@ -9,21 +9,21 @@
 
 👉 [Live demo](https://comfucius.xyz)
 
-## Features
+## 🧠 Features
 
 - Fake quotes in the style of Confucius (but more cursed).
   - **Everyone gets the same quote**
   - Quote changes once in a while
 - Lightweight, mobile-friendly frontend.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Backend**: Python 3.x, Django
 - **Frontend**: HTML, CSS (Dimension theme derived from [HTML5Up](https://html5up.net/)/[Pixelarity](https://pixelarity.com/)), a sprinkle of JS
 - **Database**: SQLite
 - **Caching**: Redis
 
-## Local Setup
+## ⚙️ Local Setup
 
 ### 1. Clone the repository
 
@@ -47,17 +47,37 @@ pip install -r requirements.txt
 
 ### 4. Run the development server
 
+❗❗❗ Database is into it's own subdirectory, create it before below commands
+
+```bash
+mkdir database
+```
+
+then create actual database (flag is needed):
+
+```bash
+python manage.py migrate --run-syncdb
+```
+
+(Optional) Create admin user for admin console:
+
+```bash
+python manage.py createsuperuser
+```
+
+Start the Redis server on the right port - check [Redis setup instructions](#🧰-redis-for-caching)
+
+Finally, start the development server:
+
 ```bash
 python manage.py runserver
 ```
 
 Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
-## 🧰 Optional: Redis for Caching
+## 🧰 Redis for Caching
 
 If you have Redis installed, Comfucius will use it to cache previously generated quotes.
-
-Redis is not strictly required — the app will still work without it — but you’ll only see placeholder text if Redis is unavailable.
 
 You can configure the Redis hostname using an environment variable:
 
@@ -69,20 +89,6 @@ Default Redis settings:
 
 - Host: `localhost` (or value from `COMFUCIUS_REDISHOST`)
 - Port: `6379`
-- DB: `0`
-
-## 💻 VS Code Extension
-
-Looking for wisdom while you code?
-
-Check out the [Comfucius VS Code extension](https://github.com/VFansss/comfucius-vscode), which shows a random (fake) quote in your editor’s status bar.
-
-## 🧑‍💻 Contributing
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/my-feature`)
-3. Make your changes and commit
-4. Submit a pull request
 
 ## 📄 License
 
