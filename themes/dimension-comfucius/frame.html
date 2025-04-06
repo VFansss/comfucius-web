@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comfucius - Frame Display</title>
+
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+
+  <style>
+
+    #wrapper {
+        display: flex;
+        justify-content: center; /* verticale */
+        align-items: center;     /* orizzontale */
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        z-index: 3;
+    }      
+
+  </style>
+
+</head>
+
+<body class="is-preload">
+
+    <div id="bg"></div>
+
+    <div id="wrapper">
+
+        <header id="header">
+            <div class="content">
+                <div class="inner">
+                    <h1>{{Phrase}}</h1>
+                    <p>~ {{Thinker}}</p>
+                </div>
+            </div>
+
+        </header>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

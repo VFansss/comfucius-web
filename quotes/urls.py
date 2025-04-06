@@ -22,6 +22,7 @@ from . import apis
 urlpatterns = [
 
     path('', views.show_daily_quote_page, name='show_daily_quote_page'), # fallback url
+    path('frame', views.show_frame_quote_page, name='show_frame_quote_page'),
     path('api/', include([
         path('get-fake-quote', apis.get_fake_quote, name='get-fake-quote'),
         path('get-random-fake-quote', apis.get_random_fake_quote, name='get-random-fake-quote'),

@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from quotes.views import show_daily_quote_page
+from quotes.views import show_daily_quote_page, show_frame_quote_page
 
 urlpatterns = [
     path('', include('pwa.urls')),  # You MUST use an empty string as the URL prefix
     path('', show_daily_quote_page), # homepage
+    path('frame', show_frame_quote_page),
     path('quotes/', include('quotes.urls')),
     path('admin/', admin.site.urls),
 ]
